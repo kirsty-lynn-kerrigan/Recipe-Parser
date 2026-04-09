@@ -1,9 +1,9 @@
 import * as cheerio from 'cheerio';
-import { RecipeOutputSchema } from './schema';
-import type { RecipeOutput } from './schema';
-import { fetchHtmlWithUserAgent } from './fetcher';
-import { extractMetadata, extractTextContent } from './extractor';
-import { normalizeRecipeWithAi } from './ai';
+import { RecipeOutputSchema } from './schema.js';
+import type { RecipeOutput } from './schema.js';
+import { fetchHtmlWithUserAgent } from './fetcher.js';
+import { extractMetadata, extractTextContent } from './extractor.js';
+import { normalizeRecipeWithAi } from './ai.js';
 
 function validateAndSanitize(data: any): RecipeOutput {
     // Basic deduplication for ingredients

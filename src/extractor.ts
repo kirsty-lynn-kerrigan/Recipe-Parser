@@ -1,5 +1,5 @@
 import * as cheerio from 'cheerio';
-import { RecipeOutput } from './schema';
+import { RecipeOutput } from './schema.js';
 
 function extractPlainText(html: string): string {
     const $ = cheerio.load(html);

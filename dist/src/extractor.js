@@ -74,13 +74,17 @@ export function extractMetadata($) {
         description = $('meta[property="og:description"]').attr('content') || $('meta[name="description"]').attr('content');
         image = $('meta[property="og:image"]').attr('content');
     }
-    const partialRecipe = {
-        title,
-        description: description || null,
-        image: image || null,
-        ingredients: ingredients.length > 0 ? ingredients : undefined,
-        high_level_steps: high_level_steps.length > 0 ? high_level_steps : undefined
-    };
+    const partialRecipe = {};
+    if (title)
+        partialRecipe.title = title;
+    if (description !== undefined)
+        partialRecipe.description = description || null;
+    if (image !== undefined)
+        partialRecipe.image = image || null;
+    if (ingredients.length > 0)
+        partialRecipe.ingredients = ingredients;
+    if (high_level_steps.length > 0)
+        partialRecipe.high_level_steps = high_level_steps;
     const isComplete = Boolean(partialRecipe.title &&
         partialRecipe.ingredients && partialRecipe.ingredients.length > 0 &&
         partialRecipe.high_level_steps && partialRecipe.high_level_steps.length > 0);

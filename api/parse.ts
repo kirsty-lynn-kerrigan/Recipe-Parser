@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { parseRecipe } from '../src/index';
+import { parseRecipe } from '../src/index.js';
 
 // Increase maximum duration to 60 seconds (Hobby Tier Max) to prevent AI and scraped timeouts from crashing the lambda
 export const maxDuration = 60; 

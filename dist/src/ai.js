@@ -1,6 +1,6 @@
 import { generateObject } from 'ai';
 import { openai } from '@ai-sdk/openai';
-import { RecipeOutputSchema } from './schema';
+import { RecipeOutputSchema } from './schema.js';
 export async function normalizeRecipeWithAi(text, partialData) {
     const rawContent = text.slice(0, 15000); // Truncate to limit tokens
     const systemPrompt = `You are a strict recipe extraction assistant. You have been provided with raw text and partial metadata extracted from a recipe web page.

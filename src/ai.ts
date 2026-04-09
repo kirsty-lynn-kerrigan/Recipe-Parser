@@ -1,6 +1,6 @@
 import { generateObject } from 'ai';
 import { openai } from '@ai-sdk/openai';
-import { RecipeOutputSchema, RecipeOutput } from './schema';
+import { RecipeOutputSchema, RecipeOutput } from './schema.js';
 
 export async function normalizeRecipeWithAi(text: string, partialData: Partial<RecipeOutput>): Promise<RecipeOutput> {
     const rawContent = text.slice(0, 15000); // Truncate to limit tokens
