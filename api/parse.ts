@@ -1,6 +1,9 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { parseRecipe } from '../src/index';
 
+// Increase maximum duration to 60 seconds (Hobby Tier Max) to prevent AI and scraped timeouts from crashing the lambda
+export const maxDuration = 60; 
+
 export default async function handler(req: VercelRequest, res: VercelResponse) {
     // Only allow GET or POST
     if (req.method !== 'GET' && req.method !== 'POST') {
