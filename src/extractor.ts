@@ -76,13 +76,12 @@ export function extractMetadata($: cheerio.CheerioAPI): { partialRecipe: Partial
         image = $('meta[property="og:image"]').attr('content');
     }
 
-    const partialRecipe: Partial<RecipeOutput> = {
-        title,
-        description: description || null,
-        image: image || null,
-        ingredients: ingredients.length > 0 ? ingredients : undefined,
-        high_level_steps: high_level_steps.length > 0 ? high_level_steps : undefined
-    };
+    const partialRecipe: Partial<RecipeOutput> = {};
+    if (title) partialRecipe.title = title;
+    if (description !== undefined) partialRecipe.description = description || null;
+    if (image !== undefined) partialRecipe.image = image || null;
+    if (ingredients.length > 0) partialRecipe.ingredients = ingredients;
+    if (high_level_steps.length > 0) partialRecipe.high_level_steps = high_level_steps;
 
     const isComplete = Boolean(
         partialRecipe.title &&
