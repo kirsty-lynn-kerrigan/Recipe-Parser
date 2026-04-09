@@ -1,5 +1,6 @@
 import * as cheerio from 'cheerio';
-import { RecipeOutputSchema, RecipeOutput } from './schema';
+import { RecipeOutputSchema } from './schema';
+import type { RecipeOutput } from './schema';
 import { fetchHtmlWithUserAgent } from './fetcher';
 import { extractMetadata, extractTextContent } from './extractor';
 import { normalizeRecipeWithAi } from './ai';
